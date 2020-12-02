@@ -1,9 +1,7 @@
-FROM ubuntu:20.04
+FROM python:alpine3.11
 
-RUN apt update && apt install -y curl unzip python3-pip
+RUN pip install boto3
 
-RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && \
-    unzip awscliv2.zip && \
-    ./aws/install
+WORKDIR /root/dev
 
-RUN pip3 install --upgrade --no-cache-dir botocore
+CMD ["python"]
