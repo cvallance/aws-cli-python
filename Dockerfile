@@ -1,7 +1,6 @@
-FROM python:alpine3.11
+FROM amazon/aws-cli
 
-RUN pip install boto3
-
-WORKDIR /root/dev
+RUN yum install -y python3 pip3
+RUN pip3 install boto3
 
 CMD ["python"]
